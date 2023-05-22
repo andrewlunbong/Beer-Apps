@@ -3,7 +3,7 @@ import ListNames from "./ListNames";
 import FavouriteBeerItem from "./FavouriteBeerItem";
 
 
-const FavouriteList = ({beers, handleChange, handleSubmit, favourites})=>{
+const FavouriteList = ({beers, handleChange, handleSubmit, favourites, deleteItem})=>{
 
     const beerNames = beers.map((beer)=>{
         return (
@@ -23,6 +23,7 @@ const FavouriteList = ({beers, handleChange, handleSubmit, favourites})=>{
             handleChange = {handleChange}
             handleSubmit = {handleChange}
             favourites = {favourites}
+            deleteItem={deleteItem}
         />)
     })
 

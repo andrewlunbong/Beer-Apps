@@ -4,6 +4,14 @@ import ListOfBeers from "../Components/ListOfBeers";
 
 const BeerContainer = ()=>{
 
+    const deleteItem = function(evt){
+        const beerId = evt.target.value
+        console.log(evt.target.value)
+        const result = favourites.filter((beer) => {
+            return beer.id != beerId})
+        setFavourites(result)
+    }
+
     const[beers, setBeers] = useState ([]);
     const[selectedBeer, setSelectedBeer] = useState(null)
     const[favourites, setFavourites] = useState([])
@@ -51,6 +59,7 @@ const BeerContainer = ()=>{
                 favourites={favourites}
                 handleChange = {handleChange}
                 handleSubmit = {handleSubmit}
+                deleteItem = {deleteItem}
             />
             <h1>List Of Beers</h1>
             <ListOfBeers

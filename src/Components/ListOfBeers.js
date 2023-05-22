@@ -19,7 +19,7 @@ const ListOfBeers = ({beers})=>{
         <table>
             <thead>
              <tr>
-                <th> Name</th>
+                <th>Name</th>
                 <th> Description</th>
              </tr>   
             </thead>
