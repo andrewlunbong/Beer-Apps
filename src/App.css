@@ -1,5 +1,12 @@
 img{
   height: 10%;
   width: 10%;
-
 }
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+

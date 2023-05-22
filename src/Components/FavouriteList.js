@@ -16,16 +16,19 @@ const FavouriteList = ({beers, handleChange, handleSubmit, favourites})=>{
     })
 
     const favBeers = favourites.map((beer) => {
+        return(
         <FavouriteBeerItem
             beer ={beer}
             key = {beer.id}
             handleChange = {handleChange}
-        />
+            handleSubmit = {handleChange}
+            favourites = {favourites}
+        />)
     })
 
     return (
         <div>
-            <div>
+            <div  className="flex">
                 {favBeers}
             </div>
             <form onSubmit={handleSubmit}>

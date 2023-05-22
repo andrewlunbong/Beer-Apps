@@ -22,8 +22,8 @@ const BeerContainer = ()=>{
         evt.preventDefault()
             const newFav = [...favourites, selectedBeer]
             setFavourites(newFav)
-            console.log(favourites)
-            setSelectedBeer(null)
+            console.log(newFav)
+            // setSelectedBeer(null)
     }
 
     useEffect(()=>{
