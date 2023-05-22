@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import { scryRenderedComponentsWithType } from "react-dom/test-utils";
 import FavouriteList from "../Components/FavouriteList";
 import ListOfBeers from "../Components/ListOfBeers";
 
@@ -11,19 +10,20 @@ const BeerContainer = ()=>{
 
     const handleChange = function(evt){
         evt.preventDefault()
+        console.log(evt.target.value)
         const beerId = evt.target.value
-        const selected = beers.find((beer)=> beer.id === beerId)
+        const selected = beers.find(beer=> beer.id == beerId)
         setSelectedBeer(selected)
+        console.log(selected)
 
     }
 
     const handleSubmit = function(evt){
         evt.preventDefault()
-        if (selectedBeer){
             const newFav = [...favourites, selectedBeer]
             setFavourites(newFav)
+            console.log(favourites)
             setSelectedBeer(null)
-        }
     }
 
     useEffect(()=>{
@@ -48,6 +48,7 @@ const BeerContainer = ()=>{
             <h1> Favourites</h1>
             <FavouriteList
                 beers = {beers}
+                favourites={favourites}
                 handleChange = {handleChange}
                 handleSubmit = {handleSubmit}
             />
