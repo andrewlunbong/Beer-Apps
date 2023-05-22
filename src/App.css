@@ -1,5 +1,33 @@
 img{
-  height: 10%;
-  width: 10%;
-
+  
+  width: 30%;
 }
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.favs{
+  position: relative;
+  width: 100px;
+  border: 1px solid black;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+}
+.favs > button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+tr {
+  text-align: left;
+}
+td{
+  height: 70px;
+  border-bottom: 0.5px solid black;
+}
+
+
+

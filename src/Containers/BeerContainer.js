@@ -1,9 +1,16 @@
 import React, {useState, useEffect} from "react";
-import { scryRenderedComponentsWithType } from "react-dom/test-utils";
 import FavouriteList from "../Components/FavouriteList";
 import ListOfBeers from "../Components/ListOfBeers";
 
 const BeerContainer = ()=>{
+
+    const deleteItem = function(evt){
+        const beerId = evt.target.value
+        console.log(evt.target.value)
+        const result = favourites.filter((beer) => {
+            return beer.id != beerId})
+        setFavourites(result)
+    }
 
     const[beers, setBeers] = useState ([]);
     const[selectedBeer, setSelectedBeer] = useState(null)
@@ -11,19 +18,20 @@ const BeerContainer = ()=>{
 
     const handleChange = function(evt){
         evt.preventDefault()
+        console.log(evt.target.value)
         const beerId = evt.target.value
-        const selected = beers.find((beer)=> beer.id === beerId)
+        const selected = beers.find(beer=> beer.id == beerId)
         setSelectedBeer(selected)
+        console.log(selected)
 
     }
 
     const handleSubmit = function(evt){
         evt.preventDefault()
-        if (selectedBeer){
             const newFav = [...favourites, selectedBeer]
             setFavourites(newFav)
-            setSelectedBeer(null)
-        }
+            console.log(newFav)
+            // setSelectedBeer(null)
     }
 
     useEffect(()=>{
@@ -48,8 +56,10 @@ const BeerContainer = ()=>{
             <h1> Favourites</h1>
             <FavouriteList
                 beers = {beers}
+                favourites={favourites}
                 handleChange = {handleChange}
                 handleSubmit = {handleSubmit}
+                deleteItem = {deleteItem}
             />
             <h1>List Of Beers</h1>
             <ListOfBeers
